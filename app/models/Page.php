@@ -85,17 +85,17 @@ class Page{
 
              
 
-    public function feedback1($data1){
+    public function feedback1($driver_review){
 
-        $this->db->query('INSERT INTO `driver_rate`(rate_id,order_id,driver_id,starRate,feedback_msg1) VALUES(:rate_id,:order_id, :driver_id, :starRate, :feedback_msg1)');
+        $this->db->query('INSERT INTO `driver_rate`(rate_id,order_id,driver_id,starRate,feedback_msg) VALUES(:rate_id,:order_id, :driver_id, :starRate, :feedback_msg)');
         {
             
              //Bind values
-             $this->db->bind('rate_id', $data1['rate_id']);
-             $this->db->bind('order_id', $data1['order_id']);
-             $this->db->bind('driver_id', $data1['driver_id']);
-             $this->db->bind('starRate', $data1['starRate']);
-             $this->db->bind('feedback_msg1', $data1['feedback_msg1']);
+             $this->db->bind('rate_id', $driver_review['rate_id']);
+             $this->db->bind('order_id', $driver_review['order_id']);
+             $this->db->bind('driver_id', $driver_review['driver_id']);
+             $this->db->bind('starRate', $driver_review['starRate']);
+             $this->db->bind('feedback_msg', $driver_review['feedback_msg']);
             
              //Execute function
             if ($this->db->execute()) {
@@ -108,17 +108,17 @@ class Page{
 
     }
 
-    public function feedback2($data1){
+    public function feedback2($seller_review){
 
-        $this->db->query('INSERT INTO `shop_rate`(rate_id,order_id,seller_id,heartRate,feedback_msg2) VALUES(:rate_id,:order_id, :seller_id, :heartRate, :feedback_msg2)');
+        $this->db->query('INSERT INTO `shop_rate`(rate_id,order_id,seller_id,heartRate,feedback_msg) VALUES(:rate_id,:order_id, :seller_id, :heartRate, :feedback_msg)');
         {
             
              //Bind values
-             $this->db->bind('rate_id', $data1['rate_id']);
-             $this->db->bind('order_id', $data1['order_id']);
-             $this->db->bind('seller_id', $data1['seller_id']);
-             $this->db->bind('heartRate', $data1['heartRate']);
-             $this->db->bind('feedback_msg2', $data1['feedback_msg2']);
+             $this->db->bind('rate_id', $seller_review['rate_id']);
+             $this->db->bind('order_id', $seller_review['order_id']);
+             $this->db->bind('seller_id', $seller_review['seller_id']);
+             $this->db->bind('heartRate', $seller_review['heartRate']);
+             $this->db->bind('feedback_msg', $seller_review['feedback_msg']);
              
              //Execute function
             if ($this->db->execute()) {
